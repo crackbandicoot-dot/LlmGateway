@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LlmGateway", "LlmGateway.csproj", "{BF6ECE17-E3FA-4D0F-9302-4A4CC2D0E15D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingProyect", "..\TestingProyect\TestingProyect.csproj", "{9AAE2CB3-F061-407E-97D8-CF9ECABB2E48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF6ECE17-E3FA-4D0F-9302-4A4CC2D0E15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6ECE17-E3FA-4D0F-9302-4A4CC2D0E15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6ECE17-E3FA-4D0F-9302-4A4CC2D0E15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6ECE17-E3FA-4D0F-9302-4A4CC2D0E15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AAE2CB3-F061-407E-97D8-CF9ECABB2E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AAE2CB3-F061-407E-97D8-CF9ECABB2E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AAE2CB3-F061-407E-97D8-CF9ECABB2E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AAE2CB3-F061-407E-97D8-CF9ECABB2E48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D155105-96B9-4821-87AB-03EB2211C1EA}
+	EndGlobalSection
+EndGlobal
