@@ -58,7 +58,8 @@ namespace LlmGateway.Client
             var rootNode = new JsonObject();
 
             // Add model name
-           // SetValueByPath(rootNode, "model", modelConfig.ModelName);
+            SetValueByPath(rootNode, "model", modelConfig.ModelName);
+
 
             // Add system prompt if available and mapped
             if (!string.IsNullOrEmpty(request.SystemPrompt) && !string.IsNullOrEmpty(modelConfig.Mapping.SystemPromptPath))
@@ -71,6 +72,15 @@ namespace LlmGateway.Client
 
             // Add messages
             var messagesArray = new JsonArray();
+            //If no system prompt supported by API, add it as a message
+            //in the context
+            if (modelConfig.Mapping.SystemPromptPath is null)
+            {
+                var messageObject = new JsonObject();
+                SetValueByPath(messageObject, modelConfig.Mapping.MessageRolePath, MessageRole.System.ToString().ToLowerInvariant());
+                SetValueByPath(messageObject, modelConfig.Mapping.MessageContentPath, request.SystemPrompt);
+                messagesArray.Add(messageObject);
+            }
             foreach (var message in request.ConversationHistory)
             {
                 var messageObject = new JsonObject();
@@ -81,6 +91,7 @@ namespace LlmGateway.Client
             }
             SetValueByPath(rootNode, modelConfig.Mapping.MessagesArrayPath, messagesArray);
 
+            
             // 5. Serialize and create StringContent
             var jsonPayload = rootNode.ToJsonString();
             httpRequest.Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
@@ -173,6 +184,10 @@ namespace LlmGateway.Client
         /// </summary>
         private static void SetValueByPath(JsonObject root, string path, JsonNode? value)
         {
+            if (value is null)
+            {
+                return;
+            }
             var segments = path.Split('.');
             var current = (JsonNode)root;
 
