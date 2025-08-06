@@ -28,7 +28,7 @@
       "AuthHeaderValueTemplate": "{ApiKey}",
       "Models": [
         {
-          "ModelName": "gemini-1.5-flash-latest",
+          "ModelName": null,
           "Aliases": [ "gemini-flash", "google-default" ],
           "Endpoint": "/v1beta/models/gemini-1.5-flash-latest:generateContent",
           "Mapping": {
@@ -42,7 +42,7 @@
           }
         },
         {
-          "ModelName": "gemini-1.5-pro-latest",
+          "ModelName": null,
           "Aliases": [ "gemini-pro" ],
           "Endpoint": "/v1beta/models/gemini-1.5-pro-latest:generateContent",
           "Mapping": {
