@@ -99,6 +99,7 @@ namespace LlmGateway.Client
             HttpResponseMessage response;
             try
             {
+                _httpClient.Timeout=TimeSpan.FromMinutes(10);
                 // 6. Send the request
                 response = await _httpClient.SendAsync(httpRequest);
             }
