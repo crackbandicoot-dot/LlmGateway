@@ -21,7 +21,7 @@ namespace LlmGateway.Client
         /// <summary>
         /// A static, shared HttpClient instance is used for performance and proper socket management.
         /// </summary>
-        private static readonly HttpClient _httpClient = new HttpClient();
+        private  HttpClient _httpClient;
 
         /// <summary>
         /// Asynchronously sends a request to an LLM provider's API using HttpClient.
@@ -36,6 +36,8 @@ namespace LlmGateway.Client
         /// <exception cref="LlmException">Thrown on API call failure.</exception>
         public async Task<string> SendRequestAsync(ProviderConfig providerConfig, ModelConfig modelConfig, LlmRequest request, string apiKey)
         {
+      
+            _httpClient = new();
             // 1. Construct the full request URI
             var requestUri = providerConfig.BaseUrl.TrimEnd('/') + "/" + modelConfig.Endpoint.TrimStart('/');
 
