@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace LlmGateway.Models
+﻿namespace LlmGateway.Models
 {
     /// <summary>
     /// Represents a standardized, internal request to be sent to an LLM.
@@ -11,9 +8,9 @@ namespace LlmGateway.Models
     public class LlmRequest
     {
         /// <summary>
-        /// Gets the alias of the model to which the request is targeted.
+        /// Gets the name of the model to which the request is targeted.
         /// </summary>
-        public string ModelAlias { get; }
+        public string ModelName { get; }
 
         /// <summary>
         /// Gets the system prompt or instructions for the model. Can be null or empty.
@@ -23,12 +20,18 @@ namespace LlmGateway.Models
         /// <summary>
         /// Gets the list of messages forming the conversation history.
         /// </summary>
-        public IReadOnlyList<ChatMessage> ConversationHistory { get; }
+        public List<string> ConversationHistory { get; }
 
         /// <summary>
         /// Gets the temperature setting for the request, controlling the randomness of the output.
         /// </summary>
         public double Temperature { get; }
+
+        /// <summary>
+        /// Includes the thougth line of the LLM if avaible
+        /// </summary>
+      
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LlmRequest"/> class.
@@ -37,11 +40,12 @@ namespace LlmGateway.Models
         /// <param name="systemPrompt">The system-level instructions for the model.</param>
         /// <param name="conversationHistory">The history of the conversation.</param>
         /// <param name="temperature">The temperature for the model's response generation.</param>
-        public LlmRequest(string modelAlias, string? systemPrompt, IEnumerable<ChatMessage> conversationHistory, double temperature)
+   
+        public LlmRequest(string modelAlias, string? systemPrompt, List<string> conversationHistory, double temperature)
         {
-            ModelAlias = modelAlias;
+            ModelName = modelAlias;
             SystemPrompt = systemPrompt;
-            ConversationHistory = conversationHistory.ToList().AsReadOnly();
+            ConversationHistory = conversationHistory;
             Temperature = temperature;
         }
     }

@@ -8,14 +8,15 @@
     public class LlmResponse
     {
         /// <summary>
-        /// Gets the main text content of the response from the language model.
+        /// Gets the TougthLine followed by the model in its response 
         /// </summary>
         public string Content { get; }
-
+        
         /// <summary>
         /// Gets the original request that prompted this response. This is useful for
         /// maintaining context in a conversation.
         /// </summary>
+
         public LlmRequest OriginalRequest { get; }
 
         /// <summary>
