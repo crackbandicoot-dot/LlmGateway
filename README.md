@@ -8,7 +8,7 @@
   It abstracts away the specific API request/response formats, authentication methods.
  
   ## How It Works 
-  1.  **The `LlmClient`:** This is your main entry point. When you create an instance of `LlmInteraction`, it creates a reausable chat with a LLM.
+  1.  **The `LlmInteraction`:** This is your main entry point. When you create an instance of `LlmInteraction`, it creates a reausable chat with a LLM.
   2.  **Making a Call:** When you call `GetChatCompletionAsync`, you refer to a model by its name on the API  (e.g., "gemini-2.5-pro"), and the provider name (currently supported are Google and OpenRouter). A *HTTP* conection with the provider is created and the request is translated to the Provider's API syntax.
   3.  **Unified Response** The client parses the provider's unique response and transforms it into a standard `LlmResponse` object. 
  
